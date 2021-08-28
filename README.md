@@ -15,6 +15,8 @@ This project is my submission for the final project in CSCI-551, *Parallel Progr
 
 It serves as an implementation of multithreading the Discrete Cosine Transform (DCT) algorithm; as well as an analysis into how well that implementation performed under rigerous testing and observation. This anaylsis is oriented towards the questions required by the assignment, and is by no means or method a full anaylsis into the algorithm or my implementation of it. However, it does cover basics such as how well it scales, it's performance with regards to Amdahl's law, etc.
 
+This report has been uploaded with the permission of the professor when I had originally made it, if there are any issues please feel free to contact me.
+
 <br></br>
 
 ## Testing Process
