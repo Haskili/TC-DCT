@@ -268,7 +268,7 @@ testResults* runTest(int totalThreads, int width,
         imRemovePadding(srcIMG, dctIMG, idctIMG, (paddedSize - height));
 
     // """Manual verification"""
-    // (Yes, this needs sarcastic triple-quotes)
+    // (Yes, this needs sarcastic triple-quotes, it's that big)
     /*
         printf("Original Image:\n");
         imPrint(srcIMG);
@@ -640,6 +640,12 @@ image* generateImage(int width, int height, int channels, int padAmnt) {
 
     This number is determined by the starting (minimum) size
     and the amount of threads used in the process
+
+    Ts = idx     * s / totalThreads;
+    Te = (idx+1) * s / totalThreads;
+   
+    For it to work, either (Te-Ts)%8 == 0
+    or                     (h/totalThreads)%8 == 0
 */
 int imGetPadSize(int totalThreads, int startingSize) {
     int found = 0, sizeFound = 0;

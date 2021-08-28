@@ -3,12 +3,12 @@
 #include <math.h>
 #include <string.h>
 #include <pthread.h>
-#include <limits.h>
 
 #define PSUDO_WIDTH  16
 #define PSUDO_HEIGHT 16
 
-// TEST IMAGE RESOLUTION
+// TEST IMAGE ('campus.pgm') RESOLUTION
+//
 // #define PSUDO_WIDTH 1200
 // #define PSUDO_HEIGHT 800
 
@@ -132,6 +132,10 @@ int main(int argc, char* argv[]) {
     // image given the image  characteristics
     image* srcIMG  = generateImage(width, height, channels, padding);
     /*
+
+        READING IN IMAGE ALTERNATIVE:
+        -----------------------------
+
         image* srcIMG = allocateImage(width, (height + padding), channels);
         FILE* inputFile = fopen("campus.pgm", "r+");
         imread(srcIMG, inputFile);
@@ -501,7 +505,7 @@ image* generateImage(int width, int height, int channels, int fitAmnt) {
     srand((unsigned)time(NULL));
     for (int y = 0; y < height; y++)
         for (int x = 0; x < width; x++)
-            im->m[x][y].i = (double)(rand() % UCHAR_MAX);
+            im->m[x][y].i = (double)(rand() % 255);
 
     // Initialize all padded area to 0's
     for (int y = height; y < height+fitAmnt; y++)
@@ -511,14 +515,6 @@ image* generateImage(int width, int height, int channels, int fitAmnt) {
     return im;
 }
 
-// Given the following,
-// Ts = idx     * s / totalThreads;
-// Te = (idx+1) * s / totalThreads;
-//
-// For it to work, either (Te-Ts)%8 == 0
-//                 or...  (h/totalThreads)%8 == 0
-//
-// Get the correct size image for the thread amount given
 int imGetPadSize(int totalThreads, int startingSize) {
     int found = 0;
     int sizeFound = 0;
