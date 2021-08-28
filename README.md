@@ -1,6 +1,5 @@
 <h1 align="center">TC-DCT</h1> 
   <p align="center">
-  <img src="https://i.imgur.com/zB2YVNx.png"  alt="blink-icon"  width="100"  height="70"><br>
     An analysis on the threaded C implementation of <br> the Discrete Cosine Transform (DCT)
     <br/><br/><br/>
     [<a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform">Discrete Cosine Transform</a>]
@@ -41,8 +40,3 @@ When verifying
 
 ## Acknowledgements
 *TC-DCT* was originally meant as a school project. As such, it is heavily commented and there may be certain sections with verbose documentation.
-
-A good portion of the comments for `SSIM()` & `PSNR()` refer to the formulas, most if not all of which can be found in the two Wikipedia pages below:
-* [SSIM Wikipedia page](https://en.wikipedia.org/wiki/Structural_similarity)
-* [PSNR Wikipedia page](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio)
-
