@@ -242,10 +242,8 @@ imValidate() return value: 0
      imMSE() return value: 1.616267526423385e-26
 
 ```
-<br>
-What's important to note is `imERR1()` returned a value that tells us that on average, we saw numbers would only start to differ after the 12th decimal point. 
 
-When thinking about the fact that the we're generating values `[0,255]` for each pixel and that the process uses `double`, this makes sense.
+What's important to note is `imERR1()` returned a value that tells us that on average, we saw numbers would only start to differ after the 12th decimal point. When thinking about the fact that the we're generating values `[0,255]` for each pixel and that the process uses `double`, the reason for this becomes clear:
 * Since the range is significantly more filled with three digit numbers, we can assume the average pixel's value is in the three digit range `[100,255]`
 * Using `double`, you have up to 15 total decimal places of precision
  
